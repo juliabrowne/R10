@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'teal',
+    // backgroundColor: 'white',
   },
   image: {
     alignSelf: 'center',
@@ -10,11 +10,14 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 20,
+    alignSelf: 'center',
+    fontFamily: 'Montserrat-Regular'
   },
   mainText: {
-    fontSize: 26,
+    fontSize: 12,
     alignSelf: 'center',
     margin: 50,
+    fontFamily: 'Montserrat-Light'
   }
 })
 

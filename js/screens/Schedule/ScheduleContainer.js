@@ -5,12 +5,17 @@ import Schedule from './Schedule'
 import { Text, ActivityIndicator } from 'react-native'
 
 export default class ScheduleContainer extends Component {
+    static navigationOptions = {
+        title: 'Schedule',
+        headerTitleStyle: {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Montserrat-Regular'
+        }
+    }
     render () {
     return ( 
         <Schedule /> 
-    // static navigationOptions = {
-    //     title: 'About'
-    // };
     // render() {
     //     return (
     //         <Query 

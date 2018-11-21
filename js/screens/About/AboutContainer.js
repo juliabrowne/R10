@@ -5,12 +5,17 @@ import About from './About'
 import { Text, ActivityIndicator } from 'react-native'
 
 export default class AboutContainer extends Component {
+    static navigationOptions = {
+        title: 'About',
+        headerTitleStyle: {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Montserrat-Regular'
+        }
+    }
     render () {
     return ( 
         <About /> 
-    // static navigationOptions = {
-    //     title: 'About'
-    // };
     // render() {
     //     return (
     //         <Query 

@@ -5,12 +5,17 @@ import Map from './Map'
 import { Text, ActivityIndicator } from 'react-native'
 
 export default class MapContainer extends Component {
+    static navigationOptions = {
+        title: 'Map',
+        headerTitleStyle: {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Montserrat-Regular'
+        }
+    }
     render () {
     return ( 
         <Map /> 
-    // static navigationOptions = {
-    //     title: 'About'
-    // };
     // render() {
     //     return (
     //         <Query 

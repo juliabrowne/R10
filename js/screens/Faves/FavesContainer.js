@@ -5,12 +5,17 @@ import Faves from './Faves'
 import { Text, ActivityIndicator } from 'react-native'
 
 export default class FavesContainer extends Component {
+    static navigationOptions = {
+        title: 'Faves',
+        headerTitleStyle: {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Montserrat-Regular'
+        }
+    }
     render () {
     return ( 
         <Faves /> 
-    // static navigationOptions = {
-    //     title: 'About'
-    // };
     // render() {
     //     return (
     //         <Query 

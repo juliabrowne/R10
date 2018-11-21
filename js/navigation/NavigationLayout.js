@@ -14,7 +14,7 @@ const ScheduleStack = createStackNavigator({
   Schedule: ScheduleScreen
 },
 {
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     ...sharedNavigationOptions(navigation)
   })
 })
@@ -23,7 +23,7 @@ const MapStack = createStackNavigator({
   Map: MapScreen
 },
 {
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     ...sharedNavigationOptions(navigation)
   })
 })
@@ -32,7 +32,7 @@ const FavesStack = createStackNavigator({
   Faves: FavesScreen
 },
 {
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     ...sharedNavigationOptions(navigation)
   })
 })
@@ -41,7 +41,7 @@ const AboutStack = createStackNavigator({
   About: AboutScreen
 },
 {
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     ...sharedNavigationOptions(navigation)
   })
 })
@@ -55,7 +55,7 @@ export default createBottomTabNavigator({
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, horizontal, tintColor }) => {
+    tabBarIcon: ({ horizontal, tintColor }) => {
       const { routeName } = navigation.state;
       let iconName;
       if (routeName === 'About') {
