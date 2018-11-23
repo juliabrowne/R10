@@ -16,7 +16,11 @@ const GET_CONDUCTS = gql`
 
 class AboutContainer extends Component {
     static navigationOptions = {
-        title: 'About'
+        title: 'About',
+        headerTitleStyle: {
+            color: 'white',
+            fontFamily: 'Montserrat'
+          }
     }
     render () {
     return ( 
@@ -24,7 +28,7 @@ class AboutContainer extends Component {
             {({loading, error, data}) => {
                 if(loading) return <ActivityIndicator />
                 if(error) return <Text>Error</Text>
-                return <About data={data.allConducts} />
+                return <About data={data} />
             }}
         </Query>
     )
