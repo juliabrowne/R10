@@ -1,8 +1,9 @@
 import React from 'react'
 import { Text, View, ScrollView, Image, FlatList } from 'react-native'
 import styles from './styles'
+import PropTypes from 'prop-types'
 
-const About = ({data}) => {
+const About = props => {
     return(
         <ScrollView style={styles.container}>
             <Image style={styles.image} source={'../../assets/images/r10_logo.png'} />
@@ -19,18 +20,21 @@ const About = ({data}) => {
                 <Text style={styles.headerText}>Code of Conduct</Text>
 
                     <FlatList
-                        data={this.props.data.allConducts}
+                        data={props.data.allConducts}
                         renderItem={({item}) => (
                             <View>
                                 <Text style={styles.headerText}>{item.title}</Text>
-                                <Text>{item.description}</Text>
+                                <Text style={styles.mainText}>{item.description}</Text>
                             </View>
                         )}
+                        keyExtractor={(item, index) => index + ''}
                     />
                 </View>
             <Text style={styles.mainText}>&copy; RED Academy 2018</Text>
         </ScrollView>
     )
 }
+
+About.propTypes = {}
   
 export default About

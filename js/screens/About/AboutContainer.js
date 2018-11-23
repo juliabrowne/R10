@@ -7,6 +7,7 @@ import { Query } from 'react-apollo'
 const GET_CONDUCTS = gql`
     {
         allConducts {
+            id
             title
             description
         }
@@ -20,10 +21,10 @@ class AboutContainer extends Component {
     render () {
     return ( 
         <Query query={GET_CONDUCTS}>
-            {({data: {allConducts}, loading, error}) => {
+            {({loading, error, data}) => {
                 if(loading) return <ActivityIndicator />
                 if(error) return <Text>Error</Text>
-                if(data) return <About data={allConducts} />
+                return <About data={data.allConducts} />
             }}
         </Query>
     )
