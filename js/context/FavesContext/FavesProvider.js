@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import realm from './../../config/models'
+import realm from '../../config/models'
 
 const FavesContext = React.createContext()
 
@@ -45,7 +45,7 @@ class FavesProvider extends Component {
 
   render() {
     return (
-      <FavesContext.Provider value={{ ...this.state, createFave, deleteFave, queryFaves }}>
+      <FavesContext.Provider value={{ ...this.state }}>
         {this.props.children}
       </FavesContext.Provider>
     )

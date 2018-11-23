@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import {
   createStackNavigator,
   createBottomTabNavigator
@@ -46,7 +47,6 @@ const AboutStack = createStackNavigator({
   })
 })
 
-// Dedicated stacks for Schedule and Faves will go here too!
 export default createBottomTabNavigator({
   Schedule: ScheduleStack,
   Map: MapStack,
@@ -65,9 +65,10 @@ export default createBottomTabNavigator({
       } else if (routeName === 'Map') {
         iconName = 'ios-map'
       } else if (routeName === 'Faves') {
-        iconName = 'ios-heart'
+        {Platform.OS === 'ios' && (iconName = 'ios-heart')}
+        {Platform.Version === 27 && (iconName = 'md-heart')}
       }
-      return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
+      return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
     },
   }),
   tabBarOptions: {

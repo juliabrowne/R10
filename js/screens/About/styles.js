@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import allStyles from '../../config/styles'
 
 const styles = StyleSheet.create({
   container: {
@@ -11,13 +12,13 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     alignSelf: 'center',
-    fontFamily: 'Montserrat-Regular'
+    ...allStyles.allFonts
   },
   mainText: {
     fontSize: 12,
     alignSelf: 'center',
     margin: 50,
-    fontFamily: 'Montserrat-Light'
+    ...allStyles.allFonts
   }
 })
 

@@ -3,6 +3,7 @@ import { Text, View, ScrollView, Image } from 'react-native'
 import styles from './styles'
 
 const Schedule = ({data}) => {
+  
     return (
         <View>
             <Text style={styles.mainText}>Schedule!</Text>
