@@ -23,7 +23,7 @@ const ScheduleStack = createStackNavigator({
     drawerLabel: 'Schedule',
     headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.openDrawer('Schedule')} >
-      <Ionicons name={'md-menu'} size={25} color={'white'} />
+      <Ionicons name={'md-menu'} size={25} color={'white'} style={{'marginLeft': 20}} />
       </TouchableOpacity>
     ),
     // drawerIcon: ({ horizontal, tintColor }) => (
@@ -44,7 +44,7 @@ const MapStack = createStackNavigator({
     drawerLabel: 'Map',
     headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.openDrawer('Schedule')} >
-      <Ionicons name={'md-menu'} size={25} color={'white'} />
+      <Ionicons name={'md-menu'} size={25} color={'white'} style={{'marginLeft': 20}} />
       </TouchableOpacity>
     ),
     // drawerIcon: ({ horizontal, tintColor }) => (
@@ -64,7 +64,7 @@ const FavesStack = createStackNavigator({
     drawerLabel: 'Faves',
     headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.openDrawer('Schedule')} >
-      <Ionicons name={'md-menu'} size={25} color={'white'} />
+      <Ionicons name={'md-menu'} size={25} color={'white'} style={{'marginLeft': 20}} />
       </TouchableOpacity>
     ),
     // drawerIcon: ({ horizontal, tintColor }) => (
@@ -82,7 +82,7 @@ const AboutStack = createStackNavigator({
     drawerLabel: 'About',
     headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.openDrawer('Schedule')} >
-      <Ionicons name={'md-menu'} size={25} color={'white'} />
+      <Ionicons name={'md-menu'} size={25} color={'white'} style={{'marginLeft': 20}} />
       </TouchableOpacity>
     ),
     // drawerIcon: ({ horizontal, tintColor }) => (
