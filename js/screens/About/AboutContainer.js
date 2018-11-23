@@ -1,11 +1,33 @@
 import React, { Component } from 'react'
 import About from './About'
-import { Text, ActivityIndicator } from 'react-native'
+import { ActivityIndicator } from 'react-native'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
-export default class AboutContainer extends Component {
+const GET_CONDUCTS = gql`
+    {
+        allConducts {
+            title
+            description
+        }
+    }
+`
+
+class AboutContainer extends Component {
+    static navigationOptions = {
+        title: 'About'
+    }
     render () {
     return ( 
-        <About /> 
+        <Query query={GET_CONDUCTS}>
+            {({data: {allConducts}, loading, error}) => {
+                if(loading) return <ActivityIndicator />
+                if(error) return <Text>Error</Text>
+                if(data) return <About data={allConducts} />
+            }}
+        </Query>
     )
   }
 }
+
+export default AboutContainer
