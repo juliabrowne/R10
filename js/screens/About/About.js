@@ -27,7 +27,8 @@ const About = props => {
                                 <Text style={styles.mainText}>{item.description}</Text>
                             </View>
                         )}
-                        keyExtractor={(item, index) => item.id}
+                        keyExtractor={(item, index) => item + index}
+                        // keyExtractor={(item, index) => item.id}
                     />
                 </View>
             <Text style={styles.mainText}>&copy; RED Academy 2018</Text>

@@ -4,6 +4,7 @@ import { Header } from 'react-navigation'
 import LinearGradient from 'react-native-linear-gradient'
 
 
+
 const GradientHeader = props => (
     <View style={{ backgroundColor: 'white', overflow: 'hidden' }}>
       <LinearGradient
