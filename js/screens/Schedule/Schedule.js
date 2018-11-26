@@ -15,7 +15,6 @@ const Schedule = props => {
                     renderItem={({item, index, section}) => (
                         <TouchableHighlight
                             activeOpacity={0.5}
-                            underlayColor={'grey'}
                             onPress={() => {
                                 navigation.navigate('Session', {key: item.id})
                             }}
@@ -25,7 +24,7 @@ const Schedule = props => {
 
                             <View style={styles.sessionLocationContainer}>
                                 <Text style={styles.sessionLocation}>{item.location}</Text>
-                                {faveIds.find(fave => fave === item.id) && (
+                                {props.faveIds.find(fave => fave === item.id) && (
                                 <Ionicons
                                     name={Platform.select({
                                         ios: 'ios-heart',

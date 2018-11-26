@@ -1,34 +1,63 @@
 import React from 'react'
-import { Text, View, ScrollView, Image } from 'react-native'
+import { Text, View, ScrollView, Image, SectionList, Platform, TouchableHighlight, StatusBar } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './styles'
+import moment from 'moment'
+import PropTypes from 'prop-types'
 
-const Faves = ({data}) => {
+const Faves = props => {
     return (
-        <View>
-            <Text style={styles.mainText}>Faves!</Text>
-        </View>
+        <ScrollView style={styles.container}>
+            <StatusBar barStyle='light-content' />
 
-        // <ScrollView style={styles.container}>
-        //     <Image style={styles.image} source={'../../assets/images/r10_logo.png'} />
-        //         <View>
-        //             <Text style={styles.mainText}>
-        //             R10 is a conference that focuses on just about any topic related to
-        //             dev.
-        //             </Text>
-        //             <Text style={styles.headerText}>Date & Venue</Text>
-        //             <Text style={styles.mainText}>
-        //             The R10 conference will take place on Tuesday, August 28, 2018 in
-        //             Vancouver, BC.
-        //             </Text>
-        //             <Text style={styles.headerText}>Code of Conduct</Text>
-        //                 {data.map(data => (
-        //                     <allConducts data={data} styles={styles} key={data.id} />
-        //                 ))}
-        //         </View>
-        //     <Text style={styles.mainText}>&copy; RED Academy 2018</Text>
-        // </ScrollView>
+                <SectionList
+                    style={styles.sectionList}
+                    renderItem={({item, index, section}) => (
+                        <TouchableHighlight
+                            activeOpacity={0.5}
+                            onPress={() => {
+                                navigation.navigate('Session', {key: item.id})
+                            }}
+                        > 
+                            <View>
+                                <Text style={styles.sessionTitle}>{item.title}</Text>
+
+                            <View style={styles.sessionLocationContainer}>
+                                <Text style={styles.sessionLocation}>{item.location}</Text>
+                                {props.faveIds.find(fave => fave === item.id) && (
+                                <Ionicons
+                                    name={Platform.select({
+                                        ios: 'ios-heart',
+                                        android: 'md-heart'
+                                    })}
+                                    size={20}
+                                    color={'red'}
+                                    style={{paddingRight: 20}}
+                                />
+                                )}
+                            </View>
+                            </View>
+                        </TouchableHighlight>
+                    )}
+                    
+                    renderSectionHeader={({section}) => (
+                        <Text style={styles.sessionTime}>
+                            {moment(section.title).format('h:mm a')}
+                        </Text>
+                    )}
+
+                    sections={props.data}
+                    keyExtractor={(item, index) => item + index}
+                />
+
+        </ScrollView>
     )
 }
 
-export default Faves
+    
+Faves.propTypes = {
+    sessions: PropTypes.array,
+    navigation: PropTypes.object,
+}                     
 
+export default Faves
