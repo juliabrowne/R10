@@ -10,14 +10,14 @@ const Schedule = props => {
     return (
         <ScrollView style={styles.container}>
             <StatusBar barStyle='light-content' />
-                <SectionList
+                {/* <SectionList
                     style={styles.sectionList}
                     renderItem={({item, index, section}) => (
                         <TouchableHighlight
                             activeOpacity={0.5}
                             underlayColor={'grey'}
                             onPress={() => {
-                                props.navigation.navigate('Session', {key: item.id})
+                                navigation.navigate('Session', {key: item.id})
                             }}
                         > 
                             <View>
@@ -49,10 +49,11 @@ const Schedule = props => {
 
                     sections={props.data}
                     keyExtractor={(item, index) => item + index}
-                />
+                /> */}
         </ScrollView>
     )
 }
+
     
 Schedule.propTypes = {
     sessions: PropTypes.array,
