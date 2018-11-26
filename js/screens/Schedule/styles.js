@@ -41,6 +41,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     ...allStyles.allFonts,
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 80
+  }
 })
 
 export default styles

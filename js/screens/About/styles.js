@@ -7,22 +7,23 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 20
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 24,
     ...allStyles.allFonts,
-    margin: 20,
+    margin: 10,
     marginVertical: 16
   },
   mainText: {
-    fontSize: 12,
-    margin: 20,
-    ...allStyles.allFonts
+    fontSize: 14,
+    margin: 10,
+    fontFamily: 'Montserrat-Light'
   },
   headerContainer: {
     flexDirection: 'row',
-    paddingRight: 12
+    paddingRight: 15
   },
   conductTitle: {
     ...allStyles.allFonts,
@@ -34,6 +35,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Light',
     fontSize: 12,
     marginBottom: 15
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 80
   }
 })
 

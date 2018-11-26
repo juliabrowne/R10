@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import FavesContext from '../../context/FavesContext/FavesProvider'
 import { ActivityIndicator, Text } from 'react-native'
 import { formatSessionData } from '../../lib/formatSessionData'
+import styles from './styles'
 
 const GET_FAVES = gql`
   query faves($filter: SessionFilter) {
@@ -23,7 +24,7 @@ const GET_FAVES = gql`
       title
     }
   }
-`;
+`
 
 class FavesContainer extends Component {
   static navigationOptions = {
@@ -32,15 +33,15 @@ class FavesContainer extends Component {
       color: 'white',
       fontFamily: 'Montserrat-Regular'
     }
-  };
+  }
   render() {
     return (
       <FavesContext.Consumer>
         {({ faveIds }) => (
           <Query query={GET_FAVES} variables={{ filter: { id_in: faveIds } }}>
             {({ loading, error, data }) => {
-              if (loading) return <ActivityIndicator size='large' />;
-              if (error) return <Text>Error</Text>;
+              if (loading) return <ActivityIndicator size='large' style = {styles.loading} />
+              if (error) return <Text>Error</Text>
               if (data) {
                 return (
                   <Faves
@@ -48,13 +49,13 @@ class FavesContainer extends Component {
                     navigation={this.props.navigation}
                     faveIds={faveIds}
                   />
-                );
+                )
               }
             }}
           </Query>
         )}
       </FavesContext.Consumer>
-    );
+    )
   }
 }
 

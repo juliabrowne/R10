@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import FavesContext from '../../context/FavesContext/FavesProvider'
 import { ActivityIndicator, Text } from 'react-native'
 import { formatSessionData } from '../../lib/formatSessionData'
+import styles from './styles'
 
 const GET_SCHEDULE = gql`
   {
@@ -37,8 +38,8 @@ class ScheduleContainer extends Component {
     return (
       <Query query={GET_SCHEDULE}>
         {({ loading, error, data }) => {
-          if (loading) return <ActivityIndicator size='large' />;
-          if (error) return <Text>Error</Text>;
+          if (loading) return <ActivityIndicator size='large' style = {styles.loading} />
+          if (error) return <Text>Error</Text>
           if (data) {
             return (
               <FavesContext.Consumer>

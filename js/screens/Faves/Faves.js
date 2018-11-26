@@ -49,7 +49,7 @@ const Faves = ({ faves, faveIds, navigation }) => {
           </Text>
         )}
         sections={faves}
-        keyExtractor={item, index => item + index}
+        keyExtractor={(item, index) => item + index}
       />
     </ScrollView>
   )

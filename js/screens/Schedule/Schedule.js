@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './styles'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import { withNavigation } from 'react-navigation'
 
 const Schedule = ({ sessions, navigation, faveIds }) => {
   return (
@@ -24,7 +25,7 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
             activeOpacity={0.5}
             underlayColor={"#E6E6E6"}
             onPress={() => {
-              navigation.navigate('Session', { key: item.id });
+              navigation.navigate('Session', { id: item.id });
             }}
           >
             <View style={styles.scheduleBreak}>
@@ -59,9 +60,9 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
 };
 
 Schedule.propTypes = {
-    id: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    id: PropTypes.string,
+    location: PropTypes.string,
+    title: PropTypes.string
 };
 
-export default Schedule
+export default withNavigation (Schedule)

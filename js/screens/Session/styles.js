@@ -38,6 +38,17 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 20
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 80
+  },
+  sessionImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50
+  }
 })
 
 export default styles
