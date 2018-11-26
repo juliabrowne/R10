@@ -58,6 +58,8 @@ const Speaker = props => {
     )
 }
 
-Speaker.propTypes = {}
+Speaker.propTypes = {
+    data: PropTypes.object.isRequired
+}
 
 export default Speaker

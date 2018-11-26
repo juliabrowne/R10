@@ -4,11 +4,12 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import FavesContext from '../../context/FavesContext/FavesProvider'
 import { ActivityIndicator, Text } from 'react-native'
+import PropTypes from 'prop-types'
 
 const GET_FAVES = gql`
-    query faves($ids: SessionFilter)
+    query faves($id: SessionFilter)
     {
-        allSessions(filter: $ids) {
+        allSessions(filter: $id) {
             id
             description
             location
@@ -26,9 +27,6 @@ const GET_FAVES = gql`
 `
 
 class FavesContainer extends Component {
-    constructor() {
-        super()
-    }
     static navigationOptions = {
         title: 'Faves',
         headerTitleStyle: {
@@ -36,23 +34,59 @@ class FavesContainer extends Component {
             fontFamily: 'Montserrat-Regular'
         }
     }
-    render () {
+    
+    sessionNav = id => {
+        this.props.navigation.navigate('Session', {id: id})
+    }
+
+    render() {
         return (
-            <FavesContext.Consumer>
-                {({faveIds}) => {
+            <Query query={GET_FAVES}>
+                {({loading, error, data: {allSessions}}) => {
+                    if(loading) return <ActivityIndicator />
+                    if(error) return <Text>Error</Text>
                     return (
-                        <Query query={GET_FAVES} variables={{ids: {id_in: faveIds}}}>
-                            {({loading, error, data}) => {
-                                if(loading) return <ActivityIndicator />
-                                if(error) return <Text>Error</Text>
-                                return <Faves data={data} navigation={this.props.navigation} faveIds={faveIds} />
+                        <FavesContext.Consumer>
+                            {values => {
+                                return <Faves data={allSessions} 
+                                              faveIds={values.faveIds}
+                                              navigation={id => this.sessionNav(id)} />
                             }}
-                        </Query>
+                        </FavesContext.Consumer>
                     )
                 }}
-            </FavesContext.Consumer>
+            </Query>
         )
     }
 }
 
+FavesContainer.propTypes = {
+    navigation: PropTypes.object.isRequired
+}
+
 export default FavesContainer
+
+
+
+
+
+//     render () {
+//         return (
+//             <FavesContext.Consumer>
+//                 {({faveIds}) => {
+//                     return (
+//                         <Query query={GET_FAVES} variables={{id: {id_in: faveIds}}}>
+//                             {({loading, error, data}) => {
+//                                 if(loading) return <ActivityIndicator />
+//                                 if(error) return <Text>Error</Text>
+//                                 return <Faves data={data} navigation={this.props.navigation} faveIds={faveIds} />
+//                             }}
+//                         </Query>
+//                     )
+//                 }}
+//             </FavesContext.Consumer>
+//         )
+//     }
+// }
+
+// export default FavesContainer

@@ -3,7 +3,7 @@ import allStyles from '../../config/styles'
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'white',
+    paddingHorizontal: 12
   },
   image: {
     alignSelf: 'center',
@@ -11,14 +11,29 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 20,
-    alignSelf: 'center',
-    ...allStyles.allFonts
+    ...allStyles.allFonts,
+    margin: 20,
+    marginVertical: 16
   },
   mainText: {
     fontSize: 12,
-    alignSelf: 'center',
-    margin: 50,
+    margin: 20,
     ...allStyles.allFonts
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    paddingRight: 12
+  },
+  conductTitle: {
+    ...allStyles.allFonts,
+    fontSize: 16,
+    color: '#9963EA',
+    marginBottom: 15
+  },
+  conductText: {
+    fontFamily: 'Montserrat-Light',
+    fontSize: 12,
+    marginBottom: 15
   }
 })
 

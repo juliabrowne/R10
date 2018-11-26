@@ -3,11 +3,10 @@ import Speaker from './Speaker'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { ActivityIndicator, Text } from 'react-native'
+import PropTypes from 'prop-types'
 
 const GET_SPEAKER = gql`
-    {
-        allSessions(filter: $ids) {
-            id
+    query Speaker($id: ID!){
             speaker {
                 name
                 image
@@ -16,7 +15,6 @@ const GET_SPEAKER = gql`
                 id
             }
         }
-    }
 `
 
 class SpeakerContainer extends Component {
@@ -29,21 +27,20 @@ class SpeakerContainer extends Component {
     }
     render () {
     return ( 
-        <Query query={GET_SPEAKER}>
-            {({loading, error, data}) => {
+        <Query query={GET_SPEAKER}
+        variables={{id: this.props.navigation.getParam('id')}}>
+            {({loading, error, data: {Speaker}}) => {
                 if(loading) return <ActivityIndicator />
                 if(error) return <Text>Error</Text>
-                return <Speaker data={data} />
+                return <Speaker data={Speaker} />
             }}
         </Query>
     )
   }
 }
 
+SpeakerContainer.propTypes = {
+    navigation: PropTypes.object.isRequired
+}
+
 export default SpeakerContainer
-
-
-
-
-
-

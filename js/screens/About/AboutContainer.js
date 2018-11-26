@@ -3,6 +3,7 @@ import About from './About'
 import { ActivityIndicator } from 'react-native'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import PropTypes from 'prop-types'
 
 const GET_CONDUCTS = gql`
     {
@@ -25,10 +26,10 @@ class AboutContainer extends Component {
     render () {
     return ( 
         <Query query={GET_CONDUCTS}>
-            {({loading, error, data}) => {
+            {({loading, error, data: {allConducts}}) => {
                 if(loading) return <ActivityIndicator />
                 if(error) return <Text>Error</Text>
-                return <About data={data} />
+                return <About data={allConducts} />
             }}
         </Query>
     )
@@ -36,3 +37,5 @@ class AboutContainer extends Component {
 }
 
 export default AboutContainer
+
+
