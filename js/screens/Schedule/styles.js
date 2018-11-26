@@ -6,18 +6,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   sectionList: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e6e6e6',
-    ...allStyles.allFonts
+
+  },
+  scheduleBreak: {
+    borderColor: '#E6E6E6',
+    borderWidth: 0.5,
+    padding: 15,
   },
   sessionTitle: {
-    marginBottom: 10,
     fontSize: 16,
+    paddingLeft: 5,
     fontWeight: '600',
-    ...allStyles.allFonts
+    ...allStyles.allFonts,
   },
   sessionLocationContainer: {
     flex: 1,
@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
   sessionLocation: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#999999'
+    paddingLeft: 5,
+    color: '#999999',
+    ...allStyles.allFonts,
   },
   sessionTime: {
     fontSize: 16,
@@ -36,7 +38,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6e6e6',
     paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 20
+    paddingLeft: 20,
+    ...allStyles.allFonts,
   },
 })
 
