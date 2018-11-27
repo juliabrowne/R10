@@ -5,9 +5,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
   },
-  sectionList: {
-
-  },
   scheduleBreak: {
     borderColor: '#E6E6E6',
     borderWidth: 0.5,

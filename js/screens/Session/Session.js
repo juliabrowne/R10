@@ -1,118 +1,91 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   Text,
   View,
   ScrollView,
   Image,
   Platform,
-  TouchableHighlight,
-  StatusBar,
-  Fragment
-  // Modal
+  TouchableOpacity,
+  StatusBar
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from './styles'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import LinearGradient from 'react-native-linear-gradient'
-import FavesContext from '../../context/FavesContext/FavesProvider'
 
-// const Session = ({ session, faveIds, navigation }) => {
-
-class Session extends Component {
-  constructor() {
-    super()
-    this.state = {
-      modal: false
-    }
-  }
-  setModal(visible) {
-    this.setState({ modal: visible })
-  }
-  render() {
-    console.log(this.props)
-    return (
-      <ScrollView style={styles.container}>
-        <StatusBar barStyle='light-content' />
-        <Text style={styles.sessionLocation}>
-          {this.props.session.location}
-        </Text>
-        {this.props.faveIds.includes(this.props.session.id) ? (
+const Session = ({ session, createFave, deleteFave, faveIds, navigation }) => {
+  return (
+    <ScrollView style={styles.container}>
+      <StatusBar barStyle='light-content' />
+      <View style={styles.locationHeartContainer}>
+        <Text style={styles.sessionLocation}>{session.location}</Text>
+        {faveIds.includes(session.id) ? (
           <Ionicons
             name={Platform.select({
               ios: 'ios-heart',
               android: 'md-heart'
             })}
             size={20}
-            color={'red'}
+            color={'#cf392a'}
+            paddingLeft={20}
+            styles={styles.heart}
           />
         ) : null}
-        <Text style={styles.sessionTitle}>{this.props.session.title}</Text>
-        <Text style={styles.sessionTime}>
-          {moment(this.props.session.startTime).format('h:mm A')}
-        </Text>
-        <Text style={styles.sessionDescription}>
-          {this.props.session.description}
-        </Text>
-        <Text style={styles.presentedBy}>Presented by:</Text>
-        <TouchableHighlight
-          onPress={() =>
-            navigation.navigate('Speaker', {
-              id: this.props.session.speaker.id
-            })
-          }
-        >
-          {this.props.session.speaker ? (
-            <View style={styles.sessionSpeaker}>
-              <Image
-                source={{ uri: this.props.session.speaker.image }}
-                style={styles.sessionImage}
-              />
-              <Text style={styles.mainText}>
-                {this.props.session.speaker.name}
-              </Text>
-            </View>
-          ) : null}
-        </TouchableHighlight>
+      </View>
+      <Text style={styles.sessionTitle}>{session.title}</Text>
+      <Text style={styles.sessionTime}>
+        {moment(session.startTime).format('h:mm A')}
+      </Text>
+      <Text style={styles.sessionDescription}>{session.description}</Text>
+      <Text style={styles.presentedBy}>Presented by:</Text>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Speaker', { id: session.speaker.id })
+        }
+      >
+        {session.speaker ? (
+          <View style={styles.sessionSpeakerContainer}>
+            <Image
+              source={{ uri: session.speaker.image }}
+              style={styles.sessionImage}
+            />
+            <Text style={styles.sessionSpeaker}>{session.speaker.name}</Text>
+          </View>
+        ) : null}
+      </TouchableOpacity>
 
-        <View>
-          <FavesContext.Consumer>
-            {({ createFave, deleteFave }) => (
-              <Fragment>
-                {!this.props.faveIds.includes(this.props.session.id) ? (
-                  <TouchableHighlight
-                    title='Add to Faves'
-                    onPress={() => createFave(this.props.session.id)}
-                  >
-                    <LinearGradient
-                      style={styles.button}
-                      colors={['#8797D6', '#9963ea']}
-                      start={{ x: 1.0, y: 1.0 }}
-                      end={{ x: 0.0, y: 0.0 }}
-                    />
-                    <Text style={styles.buttonText}>Add to Faves</Text>
-                  </TouchableHighlight>
-                ) : (
-                  <TouchableHighlight
-                    title='Remove from Faves'
-                    onPress={() => deleteFave(this.props.session.id)}
-                  >
-                    <LinearGradient
-                      style={styles.button}
-                      colors={['#8797D6', '#9963ea']}
-                      start={{ x: 1.0, y: 1.0 }}
-                      end={{ x: 0.0, y: 0.0 }}
-                    />
-                    <Text style={styles.buttonText}>Remove from Faves</Text>
-                  </TouchableHighlight>
-                )}
-              </Fragment>
-            )}
-          </FavesContext.Consumer>
-        </View>
-      </ScrollView>
-    )
-  }
+      {!faveIds.includes(session.id) ? (
+        <TouchableOpacity
+          title='Add to Faves'
+          onPress={() => createFave(session.id)}
+        >
+          <LinearGradient
+            style={styles.button}
+            colors={['#8797D6', '#9963ea']}
+            start={{ x: 1.0, y: 1.0 }}
+            end={{ x: 0.0, y: 0.0 }}
+          >
+            <Text style={styles.buttonText}>Add to Faves</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          title='Remove from Faves'
+          onPress={() => deleteFave(session.id)}
+        >
+          <LinearGradient
+            style={styles.button}
+            colors={['#8797D6', '#9963ea']}
+            start={{ x: 1.0, y: 1.0 }}
+            end={{ x: 0.0, y: 0.0 }}
+          >
+            <Text style={styles.buttonText}>Remove from Faves</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      )}
+    </ScrollView>
+  )
 }
 
 Session.propTypes = {

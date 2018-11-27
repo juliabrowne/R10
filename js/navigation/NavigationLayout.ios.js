@@ -11,10 +11,12 @@ import ScheduleScreen from '../screens/Schedule'
 import MapScreen from '../screens/Map'
 import FavesScreen from '../screens/Faves'
 import SessionScreen from '../screens/Session'
+import SpeakerScreen from '../screens/Speaker'
 
 const ScheduleStack = createStackNavigator({
   Schedule: ScheduleScreen,
-  Session: SessionScreen
+  Session: SessionScreen,
+  Speaker: SpeakerScreen
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
@@ -33,7 +35,8 @@ const MapStack = createStackNavigator({
 
 const FavesStack = createStackNavigator({
   Faves: FavesScreen,
-  Session: SessionScreen
+  Session: SessionScreen,
+  Speaker: SpeakerScreen
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({

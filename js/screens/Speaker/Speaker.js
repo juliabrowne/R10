@@ -42,7 +42,7 @@ const Speaker = props => {
                 <Text style={styles.speakerTitle}>{data.Speaker.name}</Text>
                 <Text style={styles.speakerBio}>{data.Speaker.bio}</Text>
 
-                <TouchableHighlight onPress={() => readMore(data.url)}>
+                <TouchableOpacity onPress={() => readMore(data.url)}>
                 
                     <LinearGradient
                         style={styles.button}
@@ -52,7 +52,7 @@ const Speaker = props => {
                     >
                         <Text style={styles.buttonText}>Read More on Wikipedia</Text>
                     </LinearGradient>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     )

@@ -5,7 +5,7 @@ import {
   ScrollView,
   SectionList,
   Platform,
-  TouchableHighlight,
+  TouchableOpacity,
   StatusBar
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -21,7 +21,7 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
       <SectionList
         style={styles.sectionList}
         renderItem={({ item }) => (
-          <TouchableHighlight
+          <TouchableOpacity
             activeOpacity={0.5}
             underlayColor={"#E6E6E6"}
             onPress={() => {
@@ -39,13 +39,13 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
                       android: 'md-heart'
                     })}
                     size={20}
-                    color={'red'}
+                    color={'#cf392a'}
                     style={{ paddingRight: 20 }}
                   />
                 )}
               </View>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         )}
         renderSectionHeader={({ section }) => (
           <Text style={styles.sessionTime}>

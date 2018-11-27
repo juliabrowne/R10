@@ -15,11 +15,11 @@ class FavesProvider extends Component {
     this.queryFaves()
   }
 
-  createFave(id, date) {
+  createFave(id) {
     let fave = realm.write(() => {
       realm.create('Fave', {
         id: id,
-        faved_on: date
+        faved_on: new Date
       })
       let allFaves = realm.objects('Fave')
       this.setState({ faveIds: allFaves })
@@ -28,10 +28,10 @@ class FavesProvider extends Component {
 
   deleteFave(id) {
     realm.write(() => {
-      realm.delete(fave, { id: id }).then(() => {
-        let allFaves = realm.objects('Fave')
-        this.setState({ faveIds: allFaves })
-      })
+      let fave = realm.objects('Fave').filtered(`id == $0`, id)
+      realm.delete(fave)
+      let allFaves = realm.objects('Fave')
+      this.setState({ faveIds: allFaves })
     })
   }
 

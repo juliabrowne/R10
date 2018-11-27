@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Session from './Session'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import FavesContext from '../../context/FavesContext/FavesProvider'
+import FavesContext from '../../context/FavesContext'
 import { ActivityIndicator, Text } from 'react-native'
 import styles from './styles'
 
@@ -36,29 +36,30 @@ class SessionContainer extends Component {
   render() {
     const { id } = this.props.navigation.state.params
     return (
-      <FavesContext.Consumer>
-        {({ faveIds }) => {
-          return (
-            <Query query={GET_SESSION} variables={{ id }}>
-              {({ loading, error, data }) => {
-                if (loading)
-                  return (
-                    <ActivityIndicator size='large' style={styles.loading} />
-                  )
-                if (error) return <Text>Error</Text>
-                if (data)
+      <Query query={GET_SESSION} variables={{ id }}>
+        {({ loading, error, data }) => {
+          if (loading)
+            return <ActivityIndicator size='large' style={styles.loading} />
+          if (error) return <Text>Error</Text>
+          if (data)
+            return (
+              <FavesContext.Consumer>
+                {(values) => {
+                  console.log(values)
                   return (
                     <Session
                       session={data.Session}
                       navigation={this.props.navigation}
-                      faveIds={faveIds}
+                      faveIds={values.faveIds}
+                      createFave={values.createFave}
+                      deleteFave={values.deleteFave}
                     />
                   )
-              }}
-            </Query>
-          )
+                }}
+              </FavesContext.Consumer>
+            )
         }}
-      </FavesContext.Consumer>
+      </Query>
     )
   }
 }

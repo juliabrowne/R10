@@ -5,7 +5,7 @@ import {
   ScrollView, 
   SectionList, 
   Platform, 
-  TouchableHighlight, 
+  TouchableOpacity, 
   StatusBar 
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -19,32 +19,35 @@ const Faves = ({ faves, faveIds, navigation }) => {
     <ScrollView style={styles.container}>
       <StatusBar barStyle='light-content' />
       <SectionList
-        style={styles.sectionList}
+        style={styles.favesList}
         renderItem={({ item }) => (
-          <TouchableHighlight
+          <TouchableOpacity
             activeOpacity={0.5}
             underlayColor={"#E6E6E6"}
             onPress={() => {
               navigation.navigate('Session', { id: item.id });
             }}
           >
-            <View>
-              <Text style={styles.sessionTitle}>{item.title}</Text>
-              <Text style={styles.sessionLocation}>{item.location}</Text>
+          <View style={styles.favesBreak}>
+          <View style={styles.favesInfoHeart}>
+              <Text style={styles.favesTitle}>{item.title}</Text>
                 <Ionicons
                       name={Platform.select({
                         ios: 'ios-heart',
                         android: 'md-heart'
                       })}
                       size={20}
-                      color={'red'}
-                      style={{ paddingRight: 20 }}
+                      color={'#cf392a'}
+                      paddingLeft={20}
+                      styles={styles.heart}
                   />
             </View>
-          </TouchableHighlight>
+            <Text style={styles.favesLocation}>{item.location}</Text>
+            </View>
+          </TouchableOpacity>
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.sessionTime}>
+          <Text style={styles.favesTime}>
             {moment(title).format('h:mm A')}
           </Text>
         )}

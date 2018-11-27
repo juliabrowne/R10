@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   sessionTime: {
     fontSize: 16,
     fontWeight: '600',
-    color: 'red',
+    color: '#cf392a',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
@@ -54,15 +54,20 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
+    marginTop: 10,
+    marginLeft: 20
+  },
+  sessionSpeakerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+
   },
   sessionSpeaker: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginBottom: 20,
+    marginLeft: 20,
+    marginTop: 50,
     borderBottomColor: '#E6E6E6',
     borderBottomWidth: 1,
-    paddingBottom: 20,
+    paddingBottom: 40,
     ...allStyles.allFonts
   },
   presentedBy: {
@@ -76,7 +81,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
     padding: 10,
-    borderRadius: 80
+    borderRadius: 80,
+    width: 200
   },
   buttonText: {
     color: '#fff',
@@ -90,6 +96,12 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     fontFamily: 'Montserrat-Light'
   },
+  locationHeartContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%'
+  }
 })
 
 export default styles
