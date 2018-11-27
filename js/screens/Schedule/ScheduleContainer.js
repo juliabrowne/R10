@@ -24,7 +24,7 @@ const GET_SCHEDULE = gql`
       title
     }
   }
-`;
+`
 
 class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -51,7 +51,7 @@ class ScheduleContainer extends Component {
                   />
                 )}
               </FavesContext.Consumer>
-            );
+            )
           }
         }}
       </Query>

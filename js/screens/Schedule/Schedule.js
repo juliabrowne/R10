@@ -56,13 +56,13 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
         keyExtractor={(item, index) => item + index}
       />
     </ScrollView>
-  );
-};
+  )
+}
 
 Schedule.propTypes = {
     id: PropTypes.string,
     location: PropTypes.string,
     title: PropTypes.string
-};
+}
 
 export default withNavigation (Schedule)

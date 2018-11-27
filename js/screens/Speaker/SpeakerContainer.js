@@ -6,8 +6,8 @@ import { ActivityIndicator, Text } from 'react-native'
 import styles from './styles'
 
 const GET_SPEAKER = gql`
-  query Speaker($id: ID!) {
-    speaker {
+query($id: ID) {
+  Speaker(id: $id)  {
       name
       image
       bio
@@ -26,16 +26,18 @@ class SpeakerContainer extends Component {
     }
   }
   render() {
+    const speakerId = this.props.navigation.getParam('id');
+    console.log(speakerId)
     return (
       <Query
         query={GET_SPEAKER}
-        variables={{ id: this.props.navigation.getParam('id') }}
+        variables={{id: speakerId}}
       >
         {({ loading, error, data }) => {
           if (loading)
             return <ActivityIndicator size='large' style={styles.loading} />
           if (error) return <Text>Error</Text>
-          return <Speaker data={data.Speaker} />
+          return <Speaker speaker={data.Speaker} />
         }}
       </Query>
     )

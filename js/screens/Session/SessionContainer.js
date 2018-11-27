@@ -44,15 +44,15 @@ class SessionContainer extends Component {
           if (data)
             return (
               <FavesContext.Consumer>
-                {(values) => {
-                  console.log(values)
+                {(value) => {
+                  // console.log(values)
                   return (
                     <Session
                       session={data.Session}
                       navigation={this.props.navigation}
-                      faveIds={values.faveIds}
-                      createFave={values.createFave}
-                      deleteFave={values.deleteFave}
+                      faveIds={value.faveIds.map(fave => fave.id)}
+                      createFave={value.createFave}
+                      deleteFave={value.deleteFave}
                     />
                   )
                 }}
