@@ -7,14 +7,13 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 30,
     marginBottom: 20
   },
   headerText: {
     fontSize: 24,
     ...allStyles.allFonts,
-    margin: 10,
-    marginVertical: 16
+    margin: 10
   },
   mainText: {
     fontSize: 14,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
   },
   conductText: {
     fontFamily: 'Montserrat-Light',
-    fontSize: 12,
+    fontSize: 14,
     marginBottom: 15
   },
   loading: {

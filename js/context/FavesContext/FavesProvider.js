@@ -19,7 +19,7 @@ class FavesProvider extends Component {
     let fave = realm.write(() => {
       realm.create('Fave', {
         id: id,
-        faved_on: new Date
+        faved_on: new Date()
       })
       let allFaves = realm.objects('Fave')
       this.setState({ faveIds: allFaves })

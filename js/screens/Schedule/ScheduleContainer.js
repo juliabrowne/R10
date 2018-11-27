@@ -33,12 +33,13 @@ class ScheduleContainer extends Component {
       color: 'white',
       fontFamily: 'Montserrat-Regular'
     }
-  };
+  }
   render() {
     return (
       <Query query={GET_SCHEDULE}>
         {({ loading, error, data }) => {
-          if (loading) return <ActivityIndicator size='large' style = {styles.loading} />
+          if (loading)
+            return <ActivityIndicator size='large' style={styles.loading} />
           if (error) return <Text>Error</Text>
           if (data) {
             return (

@@ -55,32 +55,36 @@ const Session = ({ session, createFave, deleteFave, faveIds, navigation }) => {
         ) : null}
       </TouchableOpacity>
 
-        <TouchableOpacity
-          title='Add to Faves'
-          onPress={() => {
-            faveIds.includes(session.id) 
-            ? deleteFave(session.id) 
-            : createFave(session.id)}}
+      <TouchableOpacity
+        title='Add to Faves'
+        onPress={() => {
+          faveIds.includes(session.id)
+            ? deleteFave(session.id)
+            : createFave(session.id)
+        }}
+      >
+        <LinearGradient
+          style={styles.button}
+          colors={['#8797D6', '#9963ea']}
+          start={{ x: 1.0, y: 1.0 }}
+          end={{ x: 0.0, y: 0.0 }}
         >
-          <LinearGradient
-            style={styles.button}
-            colors={['#8797D6', '#9963ea']}
-            start={{ x: 1.0, y: 1.0 }}
-            end={{ x: 0.0, y: 0.0 }}
-          >
-            <Text style={styles.buttonText}>{faveIds.includes(session.id) ? 'Remove from Faves' : 'Add to Faves'}</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-
+          <Text style={styles.buttonText}>
+            {faveIds.includes(session.id)
+              ? 'Remove from Faves'
+              : 'Add to Faves'}
+          </Text>
+        </LinearGradient>
+      </TouchableOpacity>
     </ScrollView>
   )
 }
 
 Session.propTypes = {
-  // navigation: PropTypes.object.isRequired,
-  // addFave: PropTypes.func.isRequired,
-  // removeFave: PropTypes.func.isRequired,
-  // faveIds: PropTypes.array.isRequired
+  navigation: PropTypes.object,
+  createFave: PropTypes.func,
+  deleteFave: PropTypes.func,
+  faveIds: PropTypes.array
 }
 
 export default Session

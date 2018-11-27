@@ -59,19 +59,21 @@ const styles = StyleSheet.create({
   },
   sessionSpeakerContainer: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderBottomColor: '#C5C6C5',
+    borderBottomWidth: 1,
+    paddingBottom: 20
   },
   sessionSpeaker: {
     marginLeft: 20,
     marginTop: 50,
-    borderBottomColor: '#E6E6E6',
-    borderBottomWidth: 1,
     paddingBottom: 40,
     ...allStyles.allFonts
   },
   presentedBy: {
     fontSize: 16,
     padding: 20,
+    marginBottom: -10,
     color: 'grey',
     fontWeight: '600',
     ...allStyles.allFonts

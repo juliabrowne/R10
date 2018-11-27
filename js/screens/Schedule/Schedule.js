@@ -23,9 +23,11 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             activeOpacity={0.5}
-            underlayColor={"#E6E6E6"}
+            underlayColor={'#E6E6E6'}
             onPress={() => {
-              navigation.navigate('Session', { id: item.id });
+              if (item.title !== 'Lunch' && item.title !== 'After Party') {
+                navigation.navigate('Session', { id: item.id })
+              }
             }}
           >
             <View style={styles.scheduleBreak}>
@@ -60,9 +62,9 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
 }
 
 Schedule.propTypes = {
-    id: PropTypes.string,
-    location: PropTypes.string,
-    title: PropTypes.string
+  id: PropTypes.string,
+  location: PropTypes.string,
+  title: PropTypes.string
 }
 
-export default withNavigation (Schedule)
+export default withNavigation(Schedule)

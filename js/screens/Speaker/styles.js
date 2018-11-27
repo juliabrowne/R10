@@ -2,12 +2,10 @@ import { StyleSheet } from 'react-native'
 import allStyles from '../../config/styles'
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-  },
   speakerContainer: {
       flex: 1,
-      backgroundColor: 'black'
+      backgroundColor: 'black',
+      alignItems: 'center'
   },
   speakerIcon: {
       marginLeft: 15
@@ -19,10 +17,14 @@ const styles = StyleSheet.create({
     marginTop: -10,
     ...allStyles.allFonts
   },
+  speakerHeader: {
+    width: '100%'
+  },  
   speakerInfo: {
       backgroundColor: 'white',
       marginBottom: 40,
       marginHorizontal: 20,
+      width: '90%',
       borderRadius: 10
   },
   speakerImage: {

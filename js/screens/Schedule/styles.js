@@ -3,18 +3,18 @@ import allStyles from '../../config/styles'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   scheduleBreak: {
     borderColor: '#E6E6E6',
     borderWidth: 0.5,
-    padding: 15,
+    padding: 15
   },
   sessionTitle: {
     fontSize: 16,
     paddingLeft: 5,
     fontWeight: '600',
-    ...allStyles.allFonts,
+    ...allStyles.allFonts
   },
   sessionLocationContainer: {
     flex: 1,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     paddingLeft: 5,
     color: '#999999',
-    ...allStyles.allFonts,
+    ...allStyles.allFonts
   },
   sessionTime: {
     fontSize: 16,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
-    ...allStyles.allFonts,
+    ...allStyles.allFonts
   },
   loading: {
     flex: 1,

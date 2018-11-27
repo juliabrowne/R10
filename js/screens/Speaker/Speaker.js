@@ -28,8 +28,9 @@ const Speaker = ({ speaker, navigation }) => {
       .catch(err => console.error('An error occurred', err))
   }
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <View style={styles.speakerContainer}>
+        <View style={styles.speakerHeader}>
         <Ionicons
           name={Platform.select({
             ios: 'ios-close',
@@ -41,21 +42,22 @@ const Speaker = ({ speaker, navigation }) => {
           onPress={() => navigation.goBack()}
         />
         <Text style={styles.aboutSpeaker}>About the Speaker:</Text>
-      </View>
-      <View style={styles.speakerInfo}>
-        <Image style={styles.speakerImage} source={{ uri: speaker.image }} />
-        <Text style={styles.speakerTitle}>{speaker.name}</Text>
-        <Text style={styles.speakerBio}>{speaker.bio}</Text>
-        <TouchableOpacity onPress={() => readMore(speaker.url)}>
-          <LinearGradient
-            style={styles.button}
-            colors={['#8797D6', '#9963ea']}
-            start={{ x: 1.0, y: 1.0 }}
-            end={{ x: 0.0, y: 0.0 }}
-          >
-            <Text style={styles.buttonText}>Read More on Wikipedia</Text>
-          </LinearGradient>
-        </TouchableOpacity>
+        </View>
+        <View style={styles.speakerInfo}>
+          <Image style={styles.speakerImage} source={{ uri: speaker.image }} />
+          <Text style={styles.speakerTitle}>{speaker.name}</Text>
+          <Text style={styles.speakerBio}>{speaker.bio}</Text>
+          <TouchableOpacity onPress={() => readMore(speaker.url)}>
+            <LinearGradient
+              style={styles.button}
+              colors={['#8797D6', '#9963ea']}
+              start={{ x: 1.0, y: 1.0 }}
+              end={{ x: 0.0, y: 0.0 }}
+            >
+              <Text style={styles.buttonText}>Read More on Wikipedia</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   )
