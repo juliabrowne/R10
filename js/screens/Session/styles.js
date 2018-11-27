@@ -59,8 +59,7 @@ const styles = StyleSheet.create({
   },
   sessionSpeakerContainer: {
     flex: 1,
-    flexDirection: 'row',
-
+    flexDirection: 'row'
   },
   sessionSpeaker: {
     marginLeft: 20,
@@ -73,21 +72,23 @@ const styles = StyleSheet.create({
   presentedBy: {
     fontSize: 16,
     padding: 20,
-    color: "grey",
-    fontWeight: "600",
+    color: 'grey',
+    fontWeight: '600',
     ...allStyles.allFonts
   },
   button: {
     marginTop: 20,
+    marginBottom: 30,
     alignItems: 'center',
     padding: 10,
     borderRadius: 80,
-    width: 200
+    width: 200,
+    alignSelf: 'center'
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
-    ...allStyles.allFonts,
+    ...allStyles.allFonts
   },
   sessionDescription: {
     fontSize: 14,

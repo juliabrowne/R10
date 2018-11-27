@@ -5,14 +5,15 @@ import {
   ScrollView,
   Image,
   Platform,
-  TouchableOpacity
+  TouchableOpacity,
+  Linking
 } from 'react-native'
 import styles from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import LinearGradient from 'react-native-linear-gradient'
 import PropTypes from 'prop-types'
 
-const Speaker = ({ speaker }) => {
+const Speaker = ({ speaker, navigation }) => {
   // code below obtained from react native docs on linking
   // https://facebook.github.io/react-native/docs/linking
   readMore = url => {
@@ -39,7 +40,7 @@ const Speaker = ({ speaker }) => {
           color='white'
           onPress={() => navigation.goBack()}
         />
-        <Text style={styles.mainText}>About the Speaker:</Text>
+        <Text style={styles.aboutSpeaker}>About the Speaker:</Text>
       </View>
       <View style={styles.speakerInfo}>
         <Image style={styles.speakerImage} source={{ uri: speaker.image }} />

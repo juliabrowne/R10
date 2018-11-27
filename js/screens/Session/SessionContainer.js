@@ -44,8 +44,7 @@ class SessionContainer extends Component {
           if (data)
             return (
               <FavesContext.Consumer>
-                {(value) => {
-                  // console.log(values)
+                {value => {
                   return (
                     <Session
                       session={data.Session}
