@@ -12,40 +12,46 @@ class FavesProvider extends Component {
   }
 
   componentDidMount() {
-      this.queryFaves()
+    this.queryFaves()
   }
 
   createFave(id, date) {
-    let fave = 
-    realm.write(() => {
-        realm.create('Fave', {
-            id: id,
-            faved_on: date
-        })
-        let allFaves = realm.objects('Fave')
-        this.setState({faveIds: allFaves})
+    let fave = realm.write(() => {
+      realm.create('Fave', {
+        id: id,
+        faved_on: date
+      })
+      let allFaves = realm.objects('Fave')
+      this.setState({ faveIds: allFaves })
     })
   }
 
   deleteFave(id) {
     realm.write(() => {
-        realm.delete(fave, {id: id}).then(() => {
+      realm.delete(fave, { id: id }).then(() => {
         let allFaves = realm.objects('Fave')
-        this.setState({faveIds: allFaves})
-        })
+        this.setState({ faveIds: allFaves })
+      })
     })
   }
 
   queryFaves() {
     realm.write(() => {
-        let allFaves = realm.objects('Fave')
-        this.setState({faveIds: allFaves})
+      let allFaves = realm.objects('Fave').map(fav => fav.id)
+      this.setState({ faveIds: allFaves })
     })
   }
 
   render() {
     return (
-      <FavesContext.Provider value={{ ...this.state }}>
+      <FavesContext.Provider
+        value={{
+          ...this.state,
+          createFave: this.createFave.bind(this),
+          deleteFave: this.deleteFave.bind(this),
+          queryFaves: this.queryFaves.bind(this)
+        }}
+      >
         {this.props.children}
       </FavesContext.Provider>
     )

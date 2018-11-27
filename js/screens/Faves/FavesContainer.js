@@ -8,8 +8,8 @@ import { formatSessionData } from '../../lib/formatSessionData'
 import styles from './styles'
 
 const GET_FAVES = gql`
-  query faves($filter: SessionFilter) {
-    allSessions(filter: $filter) {
+  query allSessions ($filter: SessionFilter) {
+    allSessions (filter: $filter) {
       id
       description
       location
@@ -43,6 +43,7 @@ class FavesContainer extends Component {
               if (loading) return <ActivityIndicator size='large' style = {styles.loading} />
               if (error) return <Text>Error</Text>
               if (data) {
+                console.log(data)
                 return (
                   <Faves
                     faves={formatSessionData(data.allSessions)}

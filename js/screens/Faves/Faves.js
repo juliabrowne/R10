@@ -56,10 +56,10 @@ const Faves = ({ faves, faveIds, navigation }) => {
 }
 
 Faves.propTypes = {
-  id: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  // id: PropTypes.string.isRequired,
+  // location: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // description: PropTypes.string.isRequired,
 }
 
 export default Faves

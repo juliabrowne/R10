@@ -7,17 +7,19 @@ import { ActivityIndicator, Text } from 'react-native'
 import styles from './styles'
 
 const GET_SESSION = gql`
-  query sessions($id: ID!) {
-    allSessions(sessions: $id) {
+  query($id: ID) {
+    Session(id: $id) {
       id
       description
+      location
       title
       startTime
       speaker {
-        name
-        image
         bio
         id
+        image
+        name
+        url
       }
     }
   }
@@ -32,13 +34,12 @@ class SessionContainer extends Component {
     }
   }
   render() {
-    console.log(this.props)
     const { id } = this.props.navigation.state.params
     return (
       <FavesContext.Consumer>
         {({ faveIds }) => {
           return (
-            <Query query={GET_SESSION} variables={{ id: { id_in: id } }}>
+            <Query query={GET_SESSION} variables={{ id }}>
               {({ loading, error, data }) => {
                 if (loading)
                   return (
@@ -48,7 +49,7 @@ class SessionContainer extends Component {
                 if (data)
                   return (
                     <Session
-                      sessions={data.allSessions}
+                      session={data.Session}
                       navigation={this.props.navigation}
                       faveIds={faveIds}
                     />
