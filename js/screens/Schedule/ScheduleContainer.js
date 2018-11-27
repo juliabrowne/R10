@@ -36,26 +36,26 @@ class ScheduleContainer extends Component {
   }
   render() {
     return (
-      <Query query={GET_SCHEDULE}>
-        {({ loading, error, data }) => {
-          if (loading)
-            return <ActivityIndicator size='large' style={styles.loading} />
-          if (error) return <Text>Error</Text>
-          if (data) {
-            return (
-              <FavesContext.Consumer>
-                {({ faveIds }) => (
+      <FavesContext.Consumer>
+        {({ faveIds }) => (
+          <Query query={GET_SCHEDULE}>
+            {({ loading, error, data }) => {
+              if (loading)
+                return <ActivityIndicator size='large' style={styles.loading} />
+              if (error) return <Text>Error</Text>
+              if (data) {
+                return (
                   <Schedule
                     sessions={formatSessionData(data.allSessions)}
                     navigation={this.props.navigation}
-                    faveIds={faveIds}
+                    faveIds={faveIds.map(fave => fave.id)}
                   />
-                )}
-              </FavesContext.Consumer>
-            )
-          }
-        }}
-      </Query>
+                )
+              }
+            }}
+          </Query>
+        )}
+      </FavesContext.Consumer>
     )
   }
 }

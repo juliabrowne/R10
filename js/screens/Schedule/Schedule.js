@@ -34,7 +34,7 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
               <Text style={styles.sessionTitle}>{item.title}</Text>
               <View style={styles.sessionLocationContainer}>
                 <Text style={styles.sessionLocation}>{item.location}</Text>
-                {faveIds.find(fave => fave === item.id) && (
+                {faveIds.includes(item.id) && (
                   <Ionicons
                     name={Platform.select({
                       ios: 'ios-heart',

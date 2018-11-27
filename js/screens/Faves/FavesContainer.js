@@ -38,7 +38,7 @@ class FavesContainer extends Component {
     return (
       <FavesContext.Consumer>
         {({ faveIds }) => (
-          <Query query={GET_FAVES} variables={{ filter: { id_in: faveIds } }}>
+          <Query query={GET_FAVES} variables={{ filter: { id_in: faveIds.map(fave => fave.id) } }}>
             {({ loading, error, data }) => {
               if (loading)
                 return <ActivityIndicator size='large' style={styles.loading} />
@@ -49,7 +49,7 @@ class FavesContainer extends Component {
                   <Faves
                     faves={formatSessionData(data.allSessions)}
                     navigation={this.props.navigation}
-                    faveIds={faveIds}
+                    faveIds={faveIds.map(fave => fave.id)}
                   />
                 )
               }
