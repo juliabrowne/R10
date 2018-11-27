@@ -40,7 +40,7 @@ const Schedule = ({ sessions, navigation, faveIds }) => {
                     })}
                     size={20}
                     color={'#cf392a'}
-                    style={{ paddingRight: 20 }}
+                    style={{ paddingLeft: 20 }}
                   />
                 )}
               </View>

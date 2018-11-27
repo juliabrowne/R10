@@ -29,8 +29,9 @@ const Faves = ({ faves, faveIds, navigation }) => {
             }}
           >
           <View style={styles.favesBreak}>
+          <Text style={styles.favesTitle}>{item.title}</Text>
           <View style={styles.favesInfoHeart}>
-              <Text style={styles.favesTitle}>{item.title}</Text>
+          <Text style={styles.favesLocation}>{item.location}</Text>
                 <Ionicons
                       name={Platform.select({
                         ios: 'ios-heart',
@@ -42,7 +43,6 @@ const Faves = ({ faves, faveIds, navigation }) => {
                       styles={styles.heart}
                   />
             </View>
-            <Text style={styles.favesLocation}>{item.location}</Text>
             </View>
           </TouchableOpacity>
         )}

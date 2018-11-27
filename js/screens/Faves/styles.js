@@ -41,14 +41,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%'
+    width: '100%',
+    marginLeft: 'auto'
   },  
   loading: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     height: 80
-  },
+  }
 })
 
 export default styles
