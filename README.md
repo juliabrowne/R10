@@ -6,10 +6,10 @@
 ##### Other R10 attributes include an external link from each speaker pop-up screen which takes the user to said speaker's wikipedia page on the browser, tab navigation between screens on ios and drawer navigation on android, and an animated about screen.
 
 
-![R10 About Screen](/js/assets/images/R10-about.png)
-![R10 Schedule Screen](/js/assets/images/R10-schedule.png)
-![R10 Speaker Screen](/js/assets/images/R10-speaker.png)
-![R10 Map Screen](/js/assets/images/R10-map.png)
+![R10 About Screen](/js/assets/images/R10-about.png | width=25)
+![R10 Schedule Screen](/js/assets/images/R10-schedule.png | width=25))
+![R10 Speaker Screen](/js/assets/images/R10-speaker.png | width=25))
+![R10 Map Screen](/js/assets/images/R10-map.png | width=25))
 
 
 ##### Technologies used:
