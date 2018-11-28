@@ -15,27 +15,39 @@ class FavesProvider extends Component {
     this.queryFaves()
   }
 
-  createFave(id) {
-    let fave = realm.write(() => {
-      realm.create('Fave', {
-        id: id,
-        faved_on: new Date()
+  createFave = id => {
+    try {
+      let fave = realm.write(() => {
+        realm.create('Fave', {
+          id: id,
+          faved_on: new Date()
+        })
       })
-    })
+    } catch (err) {
+      console.log(err)
+    }
     this.queryFaves()
   }
 
-  deleteFave(id) {
-    realm.write(() => {
-      let fave = realm.objects('Fave').filtered('id ==$0', id)
-      realm.delete(fave)
-    })
+  deleteFave = id => {
+    try {
+      realm.write(() => {
+        let fave = realm.objects('Fave').filtered('id ==$0', id)
+        realm.delete(fave)
+      })
+    } catch (err) {
+      console.log(err)
+    }
     this.queryFaves()
   }
 
-  queryFaves() {
-    const allFaves = realm.objects('Fave')
-    this.setState({ faveIds: allFaves })
+  queryFaves = () => {
+    try {
+      const allFaves = realm.objects('Fave')
+      this.setState({ faveIds: allFaves })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   render() {
