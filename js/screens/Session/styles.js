@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   buttonText: {
-    color: '#fff',
+    color: '#e6e6e6',
     fontSize: 16,
     ...allStyles.allFonts
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%'
+    width: '100%',
   }
 })
 

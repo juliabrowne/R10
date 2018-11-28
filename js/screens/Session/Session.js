@@ -28,7 +28,7 @@ const Session = ({ session, createFave, deleteFave, faveIds, navigation }) => {
             })}
             size={20}
             color={'#cf392a'}
-            paddingLeft={20}
+            paddingRight={20}
             styles={styles.heart}
           />
         )}

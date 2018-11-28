@@ -31,17 +31,17 @@ const Speaker = ({ speaker, navigation }) => {
     <ScrollView>
       <View style={styles.speakerContainer}>
         <View style={styles.speakerHeader}>
-        <Ionicons
-          name={Platform.select({
-            ios: 'ios-close',
-            android: 'md-close'
-          })}
-          style={styles.speakerIcon}
-          size={30}
-          color='white'
-          onPress={() => navigation.goBack()}
-        />
-        <Text style={styles.aboutSpeaker}>About the Speaker:</Text>
+          <Ionicons
+            name={Platform.select({
+              ios: 'ios-close',
+              android: 'md-close'
+            })}
+            style={styles.speakerIcon}
+            size={30}
+            color='white'
+            onPress={() => navigation.goBack()}
+          />
+          <Text style={styles.aboutSpeaker}>About the Speaker:</Text>
         </View>
         <View style={styles.speakerInfo}>
           <Image style={styles.speakerImage} source={{ uri: speaker.image }} />
