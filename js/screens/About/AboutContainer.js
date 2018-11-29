@@ -28,7 +28,7 @@ class AboutContainer extends Component {
       <Query query={GET_CONDUCTS}>
         {({ loading, error, data: { allConducts } }) => {
           if (loading) return <ActivityIndicator style={styles.loading} />
-          if (error) return <Text>Error</Text>
+          if (error) return <Text>Oops, there's an error!</Text>
           return <About data={allConducts} />
         }}
       </Query>

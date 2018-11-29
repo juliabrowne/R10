@@ -17,7 +17,7 @@ class FavesProvider extends Component {
 
   createFave = id => {
     try {
-      let fave = realm.write(() => {
+      const fave = realm.write(() => {
         realm.create('Fave', {
           id: id,
           faved_on: new Date()
@@ -32,7 +32,7 @@ class FavesProvider extends Component {
   deleteFave = id => {
     try {
       realm.write(() => {
-        let fave = realm.objects('Fave').filtered('id ==$0', id)
+        const fave = realm.objects('Fave').filtered('id ==$0', id)
         realm.delete(fave)
       })
     } catch (err) {

@@ -40,7 +40,7 @@ class SessionContainer extends Component {
         {({ loading, error, data }) => {
           if (loading)
             return <ActivityIndicator size='large' style={styles.loading} />
-          if (error) return <Text>Error</Text>
+          if (error) return <Text>Oops, there's an error!</Text>
           if (data)
             return (
               <FavesContext.Consumer>
