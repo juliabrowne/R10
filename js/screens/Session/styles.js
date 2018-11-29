@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 50,
     paddingBottom: 40,
-    ...allStyles.allFonts
+    ...allStyles.allFonts,
   },
   presentedBy: {
     fontSize: 16,
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingTop: 20,
     paddingRight: 20,
-    fontFamily: 'Montserrat-Light'
+    fontFamily: 'Montserrat-Light',
+    textAlign: 'justify'
   },
   locationHeartContainer: {
     flexDirection: 'row',

@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
   speakerBio: {
       fontSize: 14,
       margin: 10,
-      fontFamily: 'Montserrat-Light'
+      fontFamily: 'Montserrat-Light',
+      textAlign: 'justify'
   },
   button: {
       borderRadius: 35,

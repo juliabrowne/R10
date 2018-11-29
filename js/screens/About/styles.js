@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 14,
     margin: 10,
-    fontFamily: 'Montserrat-Light'
+    fontFamily: 'Montserrat-Light',
+    textAlign: 'justify'
   },
   creditsText: {
     fontSize: 12,
@@ -35,12 +36,14 @@ const styles = StyleSheet.create({
     ...allStyles.allFonts,
     fontSize: 16,
     color: '#9963EA',
-    marginBottom: 15
+    marginBottom: 15,
+    marginRight: 10
   },
   conductText: {
     fontFamily: 'Montserrat-Light',
     fontSize: 14,
-    margin: 10
+    margin: 10,
+    textAlign: 'justify'
   },
   loading: {
     flex: 1,
