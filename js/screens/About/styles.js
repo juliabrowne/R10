@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
     margin: 10,
     fontFamily: 'Montserrat-Light'
   },
+  creditsText: {
+    fontSize: 12,
+    alignSelf: 'center',
+    marginBottom: 20,
+    marginTop: 20,
+    ...allStyles.allFonts,
+  },
   headerContainer: {
     flexDirection: 'row',
     paddingRight: 15
@@ -33,7 +40,7 @@ const styles = StyleSheet.create({
   conductText: {
     fontFamily: 'Montserrat-Light',
     fontSize: 14,
-    marginBottom: 15
+    margin: 10
   },
   loading: {
     flex: 1,

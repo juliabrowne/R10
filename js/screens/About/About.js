@@ -26,7 +26,7 @@ const About = ({ data }) => {
           <ConductItem data={data} styles={styles} key={data.id} />
         ))}
       </View>
-      <Text style={styles.mainText}>&copy; RED Academy 2018</Text>
+      <Text style={styles.creditsText}>&copy; RED Academy 2018</Text>
     </ScrollView>
   )
 }

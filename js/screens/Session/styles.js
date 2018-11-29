@@ -100,10 +100,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Light'
   },
   locationHeartContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+    alignItems: 'center',
+    paddingRight: 20
   }
 })
 
